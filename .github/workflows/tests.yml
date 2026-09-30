@@ -1,0 +1,29 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install CoME-VL (provides the olmo package)
+        run: |
+          git clone --depth 1 https://github.com/mbzuai-oryx/CoME-VL.git /tmp/CoME-VL
+          python -m pip install --upgrade pip
+          pip install -e /tmp/CoME-VL
+      - name: Install come_cbir
+        run: |
+          pip install -r requirements.txt
+          pip install pytest
+      - name: Run tests
+        run: pytest tests/come_cbir

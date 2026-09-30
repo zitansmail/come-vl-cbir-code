@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the accompanying article."
+title: "come_cbir: CBIR pipeline, adapter, and graph-fusion validation code for open-set content-based image retrieval with CoME-VL"
+authors:
+  - family-names: Zitane
+    given-names: Smail
+    email: zitansmail@gmail.com
+    affiliation: "L-STI, T-IDMS, FST Errachidia, Moulay Ismail University, Meknes, Morocco"
+  - family-names: Zeroual
+    given-names: Imad
+    email: mr.imadine@gmail.com
+    affiliation: "L-STI, T-IDMS, FST Errachidia, Moulay Ismail University, Meknes, Morocco"
+  - family-names: Agoujil
+    given-names: Said
+    email: agoujil@gmail.com
+    affiliation: "MMIS, MAIS, FST Errachidia, Moulay Ismail University, Meknes, Morocco"
+license: Apache-2.0
+repository-code: "https://github.com/zitansmail/come-vl-cbir-code"
+preferred-citation:
+  type: article
+  title: "Understanding the Limits of Fusion, Adaptation, and Graph Combination for Open-Set Content-Based Image Retrieval"
+  authors:
+    - family-names: Zitane
+      given-names: Smail
+    - family-names: Zeroual
+      given-names: Imad
+    - family-names: Agoujil
+      given-names: Said
+  journal: "IEEE Access"

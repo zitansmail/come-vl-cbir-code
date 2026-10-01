@@ -2,6 +2,9 @@ numpy
 scipy
 scikit-learn
 torch
+torchvision
 Pillow
 PyYAML
 pytest
+faiss-cpu
+annoy

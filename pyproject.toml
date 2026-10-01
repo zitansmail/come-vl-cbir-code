@@ -19,8 +19,11 @@ dependencies = [
     "scipy",
     "scikit-learn",
     "torch",
+    "torchvision",
     "Pillow",
     "PyYAML",
+    "faiss-cpu",
+    "annoy",
 ]
 
 [project.optional-dependencies]

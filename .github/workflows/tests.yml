@@ -24,6 +24,7 @@ jobs:
       - name: Install come_cbir
         run: |
           pip install -r requirements.txt
+          pip install -e .
           pip install pytest
       - name: Run tests
         run: pytest tests/come_cbir

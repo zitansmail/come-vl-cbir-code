@@ -1,0 +1,402 @@
+Metadata-Version: 2.4
+Name: come-cbir
+Version: 1.0.0
+Summary: CBIR extraction/evaluation pipeline, ARP/ARP-NP adapter, and graph-fusion validation study accompanying the CoME-VL open-set CBIR article
+Author-email: Smail Zitane <zitansmail@gmail.com>, Imad Zeroual <mr.imadine@gmail.com>, Said Agoujil <agoujil@gmail.com>
+License:                                  Apache License
+                                   Version 2.0, January 2004
+                                http://www.apache.org/licenses/
+        
+           TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+        
+           1. Definitions.
+        
+              "License" shall mean the terms and conditions for use, reproduction,
+              and distribution as defined by Sections 1 through 9 of this document.
+        
+              "Licensor" shall mean the copyright owner or entity authorized by
+              the copyright owner that is granting the License.
+        
+              "Legal Entity" shall mean the union of the acting entity and all
+              other entities that control, are controlled by, or are under common
+              control with that entity. For the purposes of this definition,
+              "control" means (i) the power, direct or indirect, to cause the
+              direction or management of such entity, whether by contract or
+              otherwise, or (ii) ownership of fifty percent (50%) or more of the
+              outstanding shares, or (iii) beneficial ownership of such entity.
+        
+              "You" (or "Your") shall mean an individual or Legal Entity
+              exercising permissions granted by this License.
+        
+              "Source" form shall mean the preferred form for making modifications,
+              including but not limited to software source code, documentation
+              source, and configuration files.
+        
+              "Object" form shall mean any form resulting from mechanical
+              transformation or translation of a Source form, including but
+              not limited to compiled object code, generated documentation,
+              and conversions to other media types.
+        
+              "Work" shall mean the work of authorship, whether in Source or
+              Object form, made available under the License, as indicated by a
+              copyright notice that is included in or attached to the work
+              (an example is provided in the Appendix below).
+        
+              "Derivative Works" shall mean any work, whether in Source or Object
+              form, that is based on (or derived from) the Work and for which the
+              editorial revisions, annotations, elaborations, or other modifications
+              represent, as a whole, an original work of authorship. For the purposes
+              of this License, Derivative Works shall not include works that remain
+              separable from, or merely link (or bind by name) to the interfaces of,
+              the Work and Derivative Works thereof.
+        
+              "Contribution" shall mean any work of authorship, including
+              the original version of the Work and any modifications or additions
+              to that Work or Derivative Works thereof, that is intentionally
+              submitted to Licensor for inclusion in the Work by the copyright owner
+              or by an individual or Legal Entity authorized to submit on behalf of
+              the copyright owner. For the purposes of this definition, "submitted"
+              means any form of electronic, verbal, or written communication sent
+              to the Licensor or its representatives, including but not limited to
+              communication on electronic mailing lists, source code control systems,
+              and issue tracking systems that are managed by, or on behalf of, the
+              Licensor for the purpose of discussing and improving the Work, but
+              excluding communication that is conspicuously marked or otherwise
+              designated in writing by the copyright owner as "Not a Contribution."
+        
+              "Contributor" shall mean Licensor and any individual or Legal Entity
+              on behalf of whom a Contribution has been received by Licensor and
+              subsequently incorporated within the Work.
+        
+           2. Grant of Copyright License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              copyright license to reproduce, prepare Derivative Works of,
+              publicly display, publicly perform, sublicense, and distribute the
+              Work and such Derivative Works in Source or Object form.
+        
+           3. Grant of Patent License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              (except as stated in this section) patent license to make, have made,
+              use, offer to sell, sell, import, and otherwise transfer the Work,
+              where such license applies only to those patent claims licensable
+              by such Contributor that are necessarily infringed by their
+              Contribution(s) alone or by combination of their Contribution(s)
+              with the Work to which such Contribution(s) was submitted. If You
+              institute patent litigation against any entity (including a
+              cross-claim or counterclaim in a lawsuit) alleging that the Work
+              or a Contribution incorporated within the Work constitutes direct
+              or contributory patent infringement, then any patent licenses
+              granted to You under this License for that Work shall terminate
+              as of the date such litigation is filed.
+        
+           4. Redistribution. You may reproduce and distribute copies of the
+              Work or Derivative Works thereof in any medium, with or without
+              modifications, and in Source or Object form, provided that You
+              meet the following conditions:
+        
+              (a) You must give any other recipients of the Work or
+                  Derivative Works a copy of this License; and
+        
+              (b) You must cause any modified files to carry prominent notices
+                  stating that You changed the files; and
+        
+              (c) You must retain, in the Source form of any Derivative Works
+                  that You distribute, all copyright, patent, trademark, and
+                  attribution notices from the Source form of the Work,
+                  excluding those notices that do not pertain to any part of
+                  the Derivative Works; and
+        
+              (d) If the Work includes a "NOTICE" text file as part of its
+                  distribution, then any Derivative Works that You distribute must
+                  include a readable copy of the attribution notices contained
+                  within such NOTICE file, excluding those notices that do not
+                  pertain to any part of the Derivative Works, in at least one
+                  of the following places: within a NOTICE text file distributed
+                  as part of the Derivative Works; within the Source form or
+                  documentation, if provided along with the Derivative Works; or,
+                  within a display generated by the Derivative Works, if and
+                  wherever such third-party notices normally appear. The contents
+                  of the NOTICE file are for informational purposes only and
+                  do not modify the License. You may add Your own attribution
+                  notices within Derivative Works that You distribute, alongside
+                  or as an addendum to the NOTICE text from the Work, provided
+                  that such additional attribution notices cannot be construed
+                  as modifying the License.
+        
+              You may add Your own copyright statement to Your modifications and
+              may provide additional or different license terms and conditions
+              for use, reproduction, or distribution of Your modifications, or
+              for any such Derivative Works as a whole, provided Your use,
+              reproduction, and distribution of the Work otherwise complies with
+              the conditions stated in this License.
+        
+           5. Submission of Contributions. Unless You explicitly state otherwise,
+              any Contribution intentionally submitted for inclusion in the Work
+              by You to the Licensor shall be under the terms and conditions of
+              this License, without any additional terms or conditions.
+              Notwithstanding the above, nothing herein shall supersede or modify
+              the terms of any separate license agreement you may have executed
+              with Licensor regarding such Contributions.
+        
+           6. Trademarks. This License does not grant permission to use the trade
+              names, trademarks, service marks, or product names of the Licensor,
+              except as required for reasonable and customary use in describing the
+              origin of the Work and reproducing the content of the NOTICE file.
+        
+           7. Disclaimer of Warranty. Unless required by applicable law or
+              agreed to in writing, Licensor provides the Work (and each
+              Contributor provides its Contributions) on an "AS IS" BASIS,
+              WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+              implied, including, without limitation, any warranties or conditions
+              of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+              PARTICULAR PURPOSE. You are solely responsible for determining the
+              appropriateness of using or redistributing the Work and assume any
+              risks associated with Your exercise of permissions under this License.
+        
+           8. Limitation of Liability. In no event and under no legal theory,
+              whether in tort (including negligence), contract, or otherwise,
+              unless required by applicable law (such as deliberate and grossly
+              negligent acts) or agreed to in writing, shall any Contributor be
+              liable to You for damages, including any direct, indirect, special,
+              incidental, or consequential damages of any character arising as a
+              result of this License or out of the use or inability to use the
+              Work (including but not limited to damages for loss of goodwill,
+              work stoppage, computer failure or malfunction, or any and all
+              other commercial damages or losses), even if such Contributor
+              has been advised of the possibility of such damages.
+        
+           9. Accepting Warranty or Additional Liability. While redistributing
+              the Work or Derivative Works thereof, You may choose to offer,
+              and charge a fee for, acceptance of support, warranty, indemnity,
+              or other liability obligations and/or rights consistent with this
+              License. However, in accepting such obligations, You may act only
+              on Your own behalf and on Your sole responsibility, not on behalf
+              of any other Contributor, and only if You agree to indemnify,
+              defend, and hold each Contributor harmless for any liability
+              incurred by, or claims asserted against, such Contributor by reason
+              of your accepting any such warranty or additional liability.
+        
+           END OF TERMS AND CONDITIONS
+        
+           APPENDIX: How to apply the Apache License to your work.
+        
+              To apply the Apache License to your work, attach the following
+              boilerplate notice, with the fields enclosed by brackets "[]"
+              replaced with your own identifying information. (Don't include
+              the brackets!)  The text should be enclosed in the appropriate
+              comment syntax for the file format. We also recommend that a
+              file or class name and description of purpose be included on the
+              same "printed page" as the copyright notice for easier
+              identification within third-party archives.
+        
+           Copyright [yyyy] [name of copyright owner]
+        
+           Licensed under the Apache License, Version 2.0 (the "License");
+           you may not use this file except in compliance with the License.
+           You may obtain a copy of the License at
+        
+               http://www.apache.org/licenses/LICENSE-2.0
+        
+           Unless required by applicable law or agreed to in writing, software
+           distributed under the License is distributed on an "AS IS" BASIS,
+           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+           See the License for the specific language governing permissions and
+           limitations under the License.
+        
+Project-URL: Homepage, https://github.com/zitansmail/come-vl-cbir-code
+Project-URL: Base model (CoME-VL), https://github.com/mbzuai-oryx/CoME-VL
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: scikit-learn
+Requires-Dist: torch
+Requires-Dist: Pillow
+Requires-Dist: PyYAML
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Dynamic: license-file
+
+<div align="center">
+
+# come_cbir
+
+**Open-set content-based image retrieval on top of CoME-VL — extraction pipeline, ARP/ARP-NP adapter, and graph-fusion validation study.**
+
+Code accompanying the IEEE Access article *"Understanding the Limits of Fusion, Adaptation, and Graph Combination for Open-Set Content-Based Image Retrieval."*
+
+[![tests](https://github.com/zitansmail/come-vl-cbir-code/actions/workflows/tests.yml/badge.svg)](https://github.com/zitansmail/come-vl-cbir-code/actions/workflows/tests.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
+
+</div>
+
+## What this is
+
+[CoME-VL](https://github.com/mbzuai-oryx/CoME-VL) fuses a contrastive vision-language encoder (SigLIP2) with a self-supervised one (DINOv3) through a trained cross-attention module. This repository is the code behind four falsifiable investigations into whether that fusion actually helps content-based image retrieval (CBIR), and is not itself a proposed retrieval method:
+
+1. **Fusion vs. single-encoder retrieval.** A four-way comparison on Corel-1K, Corel-10K, and Caltech-101 — the trained fusion never wins a single metric on any of the three benchmarks despite costing 3.1× the dimensionality of SigLIP2 alone.
+2. **ARP (Adaptive Retrieval Projection).** A supervised-contrastive adapter that improves retrieval under a seen-class protocol but degrades under a class-disjoint unseen-class protocol — the closed-set/open-set gap the paper centers on.
+3. **ARP-NP.** A neighborhood-preservation regularizer testing whether destroyed local geometry explains that degradation — a validation-tuned, multi-seed, leakage-safe sweep finds no consistent improvement.
+4. **Graph-fusion pre-registration study.** Before implementing any graph-fusion method, a pre-registered test of whether the four frozen descriptor spaces carry complementary, exploitable information, using a budget-matched oracle-headroom metric, bootstrap confidence intervals, and multiple-testing correction. Complementarity is statistically detectable but falls ~5.5× below the pre-registered threshold, so graph fusion is not pursued.
+
+This code does **not** include the CoME-VL model source or checkpoint (unmodified and publicly released — see the article's Methodology) or the datasets (Corel-1K, Corel-10K, Caltech-101 — public benchmarks, not redistributed here).
+
+## Package layout
+
+| Module | Role |
+|---|---|
+| `feature_extractor.py`, `extract_features.py` | Run CoME-VL / SigLIP2 / DINOv3 to extract pooled descriptors from an image dataset |
+| `checkpoint_loading.py` | Low-memory checkpoint loading (meta-device construction, mmap, in-place weight assignment) and DINOv3 remote-code key remapping |
+| `dtype_patches.py` | Runtime patch for the RGCA cross-attention RoPE dtype bug |
+| `pooling.py` | Pooling strategies over patch tokens (mean, max, CLS, GeM, attention) |
+| `dimensionality.py` | PCA fitting/application (`apply_pca.py`) |
+| `indexing.py`, `build_index.py` | Nearest-neighbor index backends and index construction |
+| `query.py` | Single-image query against a built index, with optional adapter and result-grid rendering |
+| `evaluate.py` | Retrieval metrics (recall@k, mAP) over a full split or a held-out subset |
+| `retrieval_adapter.py`, `train_adapter.py`, `apply_adapter.py` | The ARP / ARP-NP supervised-contrastive adapter: definition, training, and inference-time application |
+| `generate_class_splits.py` | Leakage-safe seen/unseen class splits for the open-set protocol |
+| `geometry_diagnostics.py` | Neighborhood-preservation diagnostics used to interpret ARP-NP |
+| `validate_graph_fusion.py` | The pre-registered oracle-headroom complementarity study (bootstrap CIs, multiple-testing correction) |
+| `run_experiments.py`, `run_arp_np_controls.py`, `tune_arp_np.py` | Experiment orchestration scripts |
+| `config.py`, `utils.py`, `datasets.py`, `geometry_diagnostics.py`, `inspect_features.py` | Configuration, logging/IO helpers, dataset loading, feature inspection |
+
+## Six implementation issues fixed at inference time
+
+Running the released CoME-VL checkpoint for CBIR surfaced six previously unreported issues, none anticipated from reading the code — each is worked around at the pipeline level rather than by modifying the checkpoint itself. Full detail is in the modules linked below; the article's appendix summarizes the same table.
+
+| # | Issue | Where | Fix |
+|---|---|---|---|
+| 1 | Peak memory footprint (tens of GB) at load time | [`checkpoint_loading.py`](come_cbir/checkpoint_loading.py) (`load_checkpoint_low_memory`) | Meta-device construction + mmap + `assign=True` |
+| 2 | Key-naming mismatch | [`checkpoint_loading.py`](come_cbir/checkpoint_loading.py) (`_remap_dinov3_keys`) | Pattern-based key remapper (rename only) |
+| 3 | Attention dtype mismatch (SigLIP2, encoder 1) | [`feature_extractor.py`](come_cbir/feature_extractor.py) | Disable the `float32_attention` config flag |
+| 4 | Padding-embedding dtype corruption | [`feature_extractor.py`](come_cbir/feature_extractor.py) | Disable the `image_padding_embed` option |
+| 5 | Attention dtype mismatch (RGCA cross-attention, fusion) | [`dtype_patches.py`](come_cbir/dtype_patches.py) (`patch_cross_rope_dtype_bug`) | Preserve input dtype in RoPE coordinate computation |
+| 6 | Silent all-NaN descriptors at reduced precision | [`feature_extractor.py`](come_cbir/feature_extractor.py) | Force full precision for the vision backbone + explicit NaN/Inf check |
+
+Issue 6 is the most consequential: after fixing 1–5, extraction completed without error but produced invalid (NaN) descriptors for every input, because the same numerical-stability flag disabled for issue 3 turned out to be load-bearing for stability across the encoders' depth. It is also the only one of the six that could have gone completely undetected without an explicit validity check.
+
+## Installation
+
+`come_cbir` calls into `olmo` (the CoME-VL / Molmo package) for checkpoint loading — install that first, then this package on top:
+
+```bash
+# 1. CoME-VL / Molmo, unmodified (provides the `olmo` package)
+git clone https://github.com/mbzuai-oryx/CoME-VL.git
+pip install -e ./CoME-VL
+
+# 2. this package
+git clone https://github.com/zitansmail/come-vl-cbir-code.git
+cd come-vl-cbir-code
+pip install -r requirements.txt
+```
+
+or as an editable package:
+
+```bash
+pip install -e .
+```
+
+## Usage
+
+All scripts are runnable as modules from the repository root: `python -m come_cbir.<script> --help`.
+
+**1. Extract descriptors**
+
+```bash
+python -m come_cbir.extract_features \
+  --dataset-root /path/to/corel1k \
+  --checkpoint /path/to/come-vl-checkpoint \
+  --descriptor-mode come_fused \
+  --pooling mean \
+  --device cuda \
+  --output-dir runs/corel1k_fused
+```
+
+`--descriptor-mode` selects which encoder(s) back the descriptor (e.g. the fused CoME-VL representation vs. SigLIP2 alone); `--dtype` controls extraction precision — the vision backbone itself is always forced to float32 internally (see issue 6 above) regardless of this flag.
+
+**2. Build an index and evaluate**
+
+```bash
+python -m come_cbir.build_index --features runs/corel1k_fused/features.npy \
+  --backend faiss-flat --output runs/corel1k_fused/index.bin
+
+python -m come_cbir.evaluate --features runs/corel1k_fused/features.npy \
+  --labels runs/corel1k_fused/labels.npy --paths runs/corel1k_fused/paths.txt \
+  --top-k 10 --output-dir runs/corel1k_fused/eval
+```
+
+**3. Query a single image**
+
+```bash
+python -m come_cbir.query --image query.jpg \
+  --checkpoint /path/to/come-vl-checkpoint \
+  --index runs/corel1k_fused/index.bin --index-backend faiss-flat \
+  --top-k 10 --output runs/corel1k_fused/query_result.png
+```
+
+**4. Open-set class splits, then train/apply the ARP adapter**
+
+```bash
+python -m come_cbir.generate_class_splits --labels runs/corel1k_fused/labels.npy \
+  --output-dir runs/corel1k_fused/splits --seeds 0 1 2
+
+python -m come_cbir.train_adapter --features runs/corel1k_fused/features.npy \
+  --labels runs/corel1k_fused/labels.npy --output-dir runs/corel1k_fused/adapter \
+  --adapter-type arp --holdout-mode class --lambda-np 0.0
+
+python -m come_cbir.apply_adapter --features runs/corel1k_fused/features.npy \
+  --adapter runs/corel1k_fused/adapter/adapter.pt --output runs/corel1k_fused/features_adapted.npy
+```
+
+Set `--lambda-np > 0` to enable the ARP-NP neighborhood-preservation regularizer.
+
+**5. Graph-fusion complementarity study**
+
+```bash
+python -m come_cbir.validate_graph_fusion \
+  --descriptors runs/siglip2/features.npy runs/dinov3/features.npy \
+    runs/come_fused/features.npy runs/adapter/features_adapted.npy \
+  --labels runs/corel1k_fused/labels.npy --paths runs/corel1k_fused/paths.txt \
+  --unseen-splits runs/corel1k_fused/splits/seed0_test.json \
+  --output-dir runs/graph_fusion_study
+```
+
+## Testing
+
+```bash
+pip install -r requirements.txt pytest
+pytest tests/come_cbir
+```
+
+The test suite (`tests/come_cbir/`) covers every module above against a small mock model fixture (`conftest.py`) and does not require a real checkpoint or GPU — CoME-VL/`olmo` (see Installation) must still be importable, since a couple of tests exercise the real dataset/config classes it provides. All 176 tests pass as of this release.
+
+## Data and code availability
+
+Corel-1K, Corel-10K, and Caltech-101 are publicly available benchmark datasets commonly used in prior CBIR and image-classification literature; the CoME-VL checkpoint used is publicly released. This repository is the openly available `come_cbir` package referenced in the article's Data and Code Availability statement, built on top of the unmodified, publicly released [CoME-VL](https://github.com/mbzuai-oryx/CoME-VL) code.
+
+## Citation
+
+```bibtex
+@article{zitane_come_cbir_2026,
+  title   = {Understanding the Limits of Fusion, Adaptation, and Graph Combination for Open-Set Content-Based Image Retrieval},
+  author  = {Zitane, Smail and Zeroual, Imad and Agoujil, Said},
+  journal = {IEEE Access},
+  year    = {2026}
+}
+```
+
+See [CITATION.cff](CITATION.cff) for the software citation.
+
+## License
+
+Apache License 2.0 — see [LICENSE](LICENSE).
+
+## Authors
+
+- Smail Zitane — L-STI, T-IDMS, FST Errachidia, Moulay Ismail University, Meknes, Morocco (zitansmail@gmail.com)
+- Imad Zeroual — L-STI, T-IDMS, FST Errachidia, Moulay Ismail University, Meknes, Morocco
+- Said Agoujil — MMIS, MAIS, FST Errachidia, Moulay Ismail University, Meknes, Morocco
